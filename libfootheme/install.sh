@@ -17,10 +17,10 @@ else
     exit 1
 fi
 
+mkdir -p "${FOOBAR_APP_PATH}/Contents/Frameworks"
 curl -Lo /Applications/foobar2000.app/Contents/Frameworks/libfootheme.dylib "https://github.com/naomisphere/libfootheme/releases/latest/download/libfootheme-${ARCH_SUFFIX}.dylib"
 
 cp -f "${FOOBAR_APP_PATH}/Contents/MacOS/foobar2000" ${FOOBAR_APP_PATH}/Contents/MacOS/fb2k.backup
-mkdir -p "${FOOBAR_APP_PATH}/Contents/Frameworks"
 
 install_name_tool -id "@rpath/libfootheme.dylib" "${FOOBAR_APP_PATH}/Contents/Frameworks/libfootheme.dylib"
 
