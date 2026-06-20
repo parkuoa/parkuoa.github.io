@@ -18,15 +18,15 @@ else
 fi
 
 
-if [ ! -e ${FOOBAR_APP_PATH}/Contents/MacOS/fb2k.backup ]; then
-	echo "Could not find the original fb2k binary backup!"
-	echo "If you have one, please save it as ${FOOBAR_APP_PATH}/Contents/MacOS/fb2k.backup"
-fi
+#if [ ! -e ${FOOBAR_APP_PATH}/Contents/MacOS/fb2k.backup ]; then
+#	echo "Could not find the original fb2k binary backup!"
+#	echo "If you have one, please save it as ${FOOBAR_APP_PATH}/Contents/MacOS/fb2k.backup"
+#fi
 
 /usr/libexec/PlistBuddy -c "Delete :LSEnvironment:DYLD_INSERT_LIBRARIES" "${FOOBAR_APP_PATH}/Contents/Info.plist" 2>/dev/null || true
 /usr/libexec/PlistBuddy -c "Delete :LSEnvironment" "${FOOBAR_APP_PATH}/Contents/Info.plist" 2>/dev/null || true
 rm -f "${FOOBAR_APP_PATH}/Contents/Frameworks/libfootheme.dylib"
-mv -f "${FOOBAR_APP_PATH}/Contents/MacOS/fb2k.backup" "${FOOBAR_APP_PATH}/Contents/MacOS/foobar2000"
+#mv -f "${FOOBAR_APP_PATH}/Contents/MacOS/fb2k.backup" "${FOOBAR_APP_PATH}/Contents/MacOS/foobar2000"
 codesign --force --deep --sign - "${FOOBAR_APP_PATH}"
 
 echo ""
