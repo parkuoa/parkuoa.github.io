@@ -18,7 +18,7 @@ else
 fi
 
 mkdir -p "${FOOBAR_APP_PATH}/Contents/Frameworks"
-curl -Lo /Applications/foobar2000.app/Contents/Frameworks/libfootheme.dylib "https://github.com/naomisphere/libfootheme/releases/latest/download/libfootheme-${ARCH_SUFFIX}.dylib"
+curl -Lo /Applications/foobar2000.app/Contents/Frameworks/libfootheme.dylib "https://github.com/parkuoa/libfootheme/releases/latest/download/libfootheme-${ARCH_SUFFIX}.dylib"
 
 #cp -f "${FOOBAR_APP_PATH}/Contents/MacOS/foobar2000" ${FOOBAR_APP_PATH}/Contents/MacOS/fb2k.backup
 
@@ -34,4 +34,4 @@ codesign --force --deep --sign - "${FOOBAR_APP_PATH}"
 echo ""
 echo "installed libfootheme"
 echo "To interact with libfootheme, use the "Theme" menu bar item"
-echo "To uninstall libfootheme, run curl https://naomisphere.github.io/libfootheme/uninstall.sh | sh"
+echo "To uninstall libfootheme, run curl https://parkuoa.github.io/libfootheme/uninstall.sh | sh"
